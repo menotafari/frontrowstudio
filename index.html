@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Patient reactivation campaigns for aesthetic practices. We turn the inquiries already sitting in your CRM into booked appointments in fourteen days.">
+<style>*{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Front Row Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&display=swap">
+
+<style>
+  :root {
+    --ground:      #EDF0F7;
+    --ground-deep: #E1E6F1;
+    --card:        #F7F9FC;
+    --ink:         #101B33;
+    --ink-soft:    #46527012;
+    --text:        #333F5C;
+    --rule:        #C9D2E4;
+    --bulb:        #A9691A;
+    --bulb-hot:    #8A5312;
+    --bulb-glow:   #E8A33D33;
+    --btn-text:    #FBF7F0;
+    --slate:       #5A6684;
+
+    --measure: 34rem;
+    --step-0: 1rem;
+    --step-1: 1.1875rem;
+    --step-2: 1.5rem;
+    --step-3: 2.125rem;
+    --step-4: clamp(2.75rem, 7vw, 4.5rem);
+
+    --sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    --display: 'Bodoni Moda', 'Didot', Georgia, serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0D1830;
+      --ground-deep: #08101F;
+      --card:        #131F3B;
+      --ink:         #F2F5FB;
+      --ink-soft:    #ffffff0f;
+      --text:        #AFBBD4;
+      --rule:        #263352;
+      --bulb:        #E8A33D;
+      --bulb-hot:    #F6C878;
+      --bulb-glow:   #E8A33D26;
+      --btn-text:    #0B1426;
+      --slate:       #7C8AAB;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0D1830;
+    --ground-deep: #08101F;
+    --card:        #131F3B;
+    --ink:         #F2F5FB;
+    --ink-soft:    #ffffff0f;
+    --text:        #AFBBD4;
+    --rule:        #263352;
+    --bulb:        #E8A33D;
+    --bulb-hot:    #F6C878;
+    --bulb-glow:   #E8A33D26;
+    --btn-text:    #0B1426;
+    --slate:       #7C8AAB;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: var(--step-1);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+  }
+
+  /* ── marquee bulb strip ─────────────────────────── */
+  .marquee {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    padding: 1.5rem 0 0;
+  }
+  .marquee i {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--bulb);
+    opacity: 0.28;
+  }
+  .marquee i:nth-child(3n) { opacity: 0.7; }
+  .marquee i:nth-child(5n) { opacity: 0.45; }
+
+  /* ── shared ─────────────────────────────────────── */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bulb);
+  }
+
+  h1, h2, h3 { color: var(--ink); text-wrap: balance; margin: 0; }
+
+  h1 {
+    font-family: var(--display);
+    font-size: var(--step-4);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+  }
+  h1 em { font-style: italic; color: var(--bulb); }
+
+  h2 {
+    font-family: var(--display);
+    font-size: var(--step-3);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: var(--step-1);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  p { margin: 0; max-width: var(--measure); }
+
+  section { padding: 5.5rem 0; border-top: 1px solid var(--rule); }
+  section:first-of-type { border-top: 0; }
+
+  .stack { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stack-sm { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    align-self: flex-start;
+    background: var(--bulb);
+    color: var(--btn-text);
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    padding: 0.9rem 1.6rem;
+    border-radius: 2px;
+    transition: background 0.16s ease, transform 0.16s ease;
+  }
+  .btn:hover { background: var(--bulb-hot); transform: translateY(-1px); }
+  .btn:focus-visible { outline: 2px solid var(--bulb); outline-offset: 3px; }
+
+  /* ── hero ───────────────────────────────────────── */
+  .hero { padding: 3.5rem 0 5rem; }
+  .hero .lede {
+    font-size: var(--step-2);
+    line-height: 1.45;
+    color: var(--text);
+    max-width: 30rem;
+  }
+  .brand {
+    font-family: var(--display);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 2rem 0 4rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .masthead span { font-size: 0.8125rem; color: var(--slate); letter-spacing: 0.04em; }
+
+  /* ── the leak ───────────────────────────────────── */
+  .leak {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+    max-width: 40rem;
+  }
+  .leak-row { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1.25rem; align-items: center; }
+  .leak-num {
+    font-family: var(--display);
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .leak-bar { height: 100%; }
+  .leak-fill {
+    height: 2.25rem;
+    background: var(--ink-soft);
+    border-left: 2px solid var(--rule);
+    display: flex;
+    align-items: center;
+    padding-left: 0.85rem;
+    font-size: 0.9375rem;
+    color: var(--text);
+  }
+  .leak-row.booked .leak-num { color: var(--bulb); }
+  .leak-row.booked .leak-fill {
+    background: var(--bulb-glow);
+    border-left-color: var(--bulb);
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .leak-note {
+    margin-top: 2rem;
+    font-size: var(--step-1);
+    color: var(--ink);
+    max-width: 32rem;
+    border-left: 2px solid var(--bulb);
+    padding-left: 1.25rem;
+    line-height: 1.5;
+  }
+
+  /* ── steps ──────────────────────────────────────── */
+  .steps { display: grid; gap: 2.5rem; margin-top: 3rem; }
+  @media (min-width: 52rem) { .steps { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+  .step { display: flex; flex-direction: column; gap: 0.65rem; }
+  .step-day {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bulb);
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 0.35rem;
+  }
+  .step p { font-size: var(--step-0); }
+
+  /* ── pricing ────────────────────────────────────── */
+  .tiers { display: grid; gap: 1.25rem; margin-top: 3rem; }
+  @media (min-width: 46rem) { .tiers { grid-template-columns: 1fr 1fr; } }
+  .tier {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .tier.lead { border-color: var(--bulb); }
+  .tier-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .tier.lead .tier-tag { color: var(--bulb); }
+  .price {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .price small { font-family: var(--sans); font-size: 0.875rem; color: var(--slate); font-weight: 400; }
+  .tier ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .tier li { font-size: 0.9375rem; padding-left: 1.1rem; position: relative; line-height: 1.45; }
+  .tier li::before {
+    content: ""; position: absolute; left: 0; top: 0.6em;
+    width: 4px; height: 4px; border-radius: 50%; background: var(--bulb);
+  }
+
+  /* ── fit ────────────────────────────────────────── */
+  .fit { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
+  .fit span {
+    font-size: 0.875rem;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+    padding: 0.4rem 0.9rem;
+    border-radius: 2px;
+  }
+
+  /* ── close ──────────────────────────────────────── */
+  .close { text-align: left; }
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 0 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.8125rem;
+    color: var(--slate);
+  }
+  footer a { color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer a:hover { color: var(--bulb); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="marquee" aria-hidden="true">
+  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="brand">Front Row Studio</div>
+    <span>Patient reactivation for aesthetic practices</span>
+  </div>
+
+  <section class="hero stack">
+    <p class="eyebrow">No ad spend. Fourteen days.</p>
+    <h1>Your next thirty patients are <em>already</em> in your CRM.</h1>
+    <p class="lede">They inquired. They didn't book. Nobody followed up again. We run a two-week campaign against that list and put appointments back on your calendar.</p>
+    <a class="btn" href="#book">Book a 15-minute call</a>
+  </section>
+
+  <section>
+    <p class="eyebrow">The leak</p>
+    <h2>What happens to 100 inquiries at the average practice</h2>
+
+    <div class="leak">
+      <div class="leak-row">
+        <div class="leak-num">62</div>
+        <div class="leak-bar"><div class="leak-fill" style="width:100%">Never contacted a second time</div></div>
+      </div>
+      <div class="leak-row">
+        <div class="leak-num">27</div>
+        <div class="leak-bar"><div class="leak-fill" style="width:52%">One follow-up, then dropped</div></div>
+      </div>
+      <div class="leak-row booked">
+        <div class="leak-num">11</div>
+        <div class="leak-bar"><div class="leak-fill" style="width:26%">Book a treatment</div></div>
+      </div>
+    </div>
+
+    <p class="leak-note">The 89 aren't cold leads. They're unattended ones — and you already paid for every single one of them.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">The campaign</p>
+    <h2>Fourteen days, and one CSV from you</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-day">Days 1–2 · Export</div>
+        <h3>You send one file</h3>
+        <p>We dedupe it, scrub the dead numbers, and segment by treatment interest and how long ago they inquired. That's the last thing we need from you.</p>
+      </div>
+      <div class="step">
+        <div class="step-day">Days 3–12 · Campaign</div>
+        <h3>SMS and email, in waves</h3>
+        <p>Sequences written around your treatments and your current offers, released in batches so your front desk is never buried in replies at once.</p>
+      </div>
+      <div class="step">
+        <div class="step-day">Days 13–14 · Handoff</div>
+        <h3>Appointments on the calendar</h3>
+        <p>Bookings land in your system. You get every conversation, the cleaned list, and the numbers — including what it produced against what it cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Engagements</p>
+    <h2>Start small. The math should be obvious before you spend more.</h2>
+
+    <div class="tiers">
+      <div class="tier lead">
+        <div class="tier-tag">Start here</div>
+        <div class="price">$2,000 <small>flat</small></div>
+        <h3>Database Reactivation</h3>
+        <ul>
+          <li>Full list clean, dedupe and segmentation</li>
+          <li>SMS and email sequences written for your treatments</li>
+          <li>Fourteen-day run, managed end to end</li>
+          <li>Every conversation and every number handed back</li>
+          <li>Half on signature, half on delivery</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <div class="tier-tag">Once it's working</div>
+        <div class="price">$7,000 <small>+ $2,000/mo</small></div>
+        <h3>The Front Row System</h3>
+        <ul>
+          <li>Site and landing pages built to convert, not to look busy</li>
+          <li>Every new inquiry answered inside five minutes, automatically</li>
+          <li>Follow-up that runs 90 days instead of two</li>
+          <li>Booking flow wired into your calendar</li>
+          <li>Ongoing campaign management and monthly reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Fit</p>
+    <h2>This works when the ticket is high and the list is old</h2>
+    <p>Practices with an average treatment value above $1,500 and at least eighteen months of inquiry history. Under three hundred old leads and there isn't enough there to be worth either of our time — I'll tell you that on the call rather than after you've paid.</p>
+    <div class="fit">
+      <span>Med spas</span>
+      <span>Cosmetic dentistry</span>
+      <span>Plastic surgery</span>
+      <span>Dermatology</span>
+      <span>Orthodontics</span>
+      <span>Hair restoration</span>
+    </div>
+  </section>
+
+  <section class="close stack" id="book">
+    <p class="eyebrow">Next</p>
+    <h2>Fifteen minutes</h2>
+    <p>Bring two numbers — how many old inquiries are sitting in your system, and what a new patient is worth to you. I'll tell you on the call what a campaign against that list is likely worth, or that it isn't worth running.</p>
+    <a class="btn" href="#">Book the call</a>
+  </section>
+
+  <footer>
+    <span>Front Row Studio</span>
+    <span><a href="mailto:hello@frontrowstudio.xyz">hello@frontrowstudio.xyz</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
