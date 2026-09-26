@@ -1,5 +1,0 @@
-{
-  "redirects": [
-    { "source": "/:path*", "destination": "https://kona.so", "permanent": true }
-  ]
-}
